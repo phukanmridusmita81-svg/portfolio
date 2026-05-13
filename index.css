@@ -1,0 +1,112 @@
+.skills__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.skills__label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.skills__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.skills__tab {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skills__tab:hover {
+  border-color: var(--accent-violet);
+  color: var(--text-primary);
+}
+
+.skills__tab--active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: white;
+}
+
+.skills__content {
+  padding: 2.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.skills__cat-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.skill-item {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.skill-item__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item__name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skill-item__level {
+  font-size: 0.8rem;
+  color: var(--accent-violet);
+  font-weight: 600;
+}
+
+.skill-item__bar {
+  height: 6px;
+  background: rgba(124, 58, 237, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-item__fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  width: 0;
+  animation: fillBar 1s ease forwards 0.3s;
+}
+
+@keyframes fillBar {
+  to { width: var(--target-width); }
+}
+
+@media (max-width: 600px) {
+  .skills__content { padding: 1.5rem; }
+}
