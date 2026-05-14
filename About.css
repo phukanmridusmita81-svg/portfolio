@@ -1,0 +1,79 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Education from './components/Education';
+import Contact from './components/Contact';
+import Admin from './components/Admin';
+
+export default function App() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    // Show admin panel if URL is /admin or ?admin in hash
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    if (path === '/admin' || hash === '#admin') {
+      setIsAdmin(true);
+    }
+  }, []);
+
+  if (isAdmin) {
+    return (
+      <>
+        <div className="bg-blob bg-blob-1" />
+        <div className="bg-blob bg-blob-2" />
+        <div className="bg-blob bg-blob-3" />
+        <Admin />
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="bg-blob bg-blob-1" />
+      <div className="bg-blob bg-blob-2" />
+      <div className="bg-blob bg-blob-3" />
+
+      <Navbar />
+      <main style={{ position: 'relative', zIndex: 1 }}>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+
+      {/* Hidden admin link — visible only in footer */}
+      <div style={{ position: 'fixed', bottom: '1rem', right: '1rem', zIndex: 50 }}>
+        <a
+          href="#admin"
+          onClick={e => { e.preventDefault(); setIsAdmin(true); window.history.pushState({}, '', '/admin'); }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            background: 'rgba(13,10,26,0.8)',
+            border: '1px solid rgba(124,58,237,0.3)',
+            color: 'rgba(124,58,237,0.6)',
+            padding: '0.4rem 0.8rem',
+            borderRadius: '8px',
+            fontSize: '0.72rem',
+            textDecoration: 'none',
+            backdropFilter: 'blur(10px)',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => { e.target.style.color = '#7c3aed'; e.target.style.borderColor = 'rgba(124,58,237,0.6)'; }}
+          onMouseLeave={e => { e.target.style.color = 'rgba(124,58,237,0.6)'; e.target.style.borderColor = 'rgba(124,58,237,0.3)'; }}
+        >
+          ⚙ Admin
+        </a>
+      </div>
+    </>
+  );
+}
+
