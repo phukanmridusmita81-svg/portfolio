@@ -1,6 +1,6 @@
 # portfolio
 
-https://mridusportfolio.netlify.app/
+https://mridusmitaportfolio.netlify.app/
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/472556be-a2c5-434e-a70a-2d33aba09874" />
 
